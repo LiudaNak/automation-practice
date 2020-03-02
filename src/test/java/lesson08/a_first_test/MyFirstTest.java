@@ -31,8 +31,7 @@ public class MyFirstTest {
         driver.quit();
     }
 
-    // Using of assertTrue isn't useful for different comparison
-    // in fails you should check what was expected and actual results
+
     @Test(timeout = 5000l)
     public void verifyFirstTipIsCorrect_viaAssertTrue() {
         driver.findElement(By.id("search_query_top"))

@@ -4,6 +4,7 @@ import org.checkerframework.checker.nullness.compatqual.NullableDecl;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 public class CustomExpectedConditions {
@@ -15,9 +16,12 @@ public class CustomExpectedConditions {
             @NullableDecl
             public WebElement apply(@NullableDecl WebDriver driver) {
                 try {
+                    System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
+                    driver = new ChromeDriver();
+
                     nthElementText = driver.findElements(locator).get(no).getText();
                     WebElement element = driver.findElements(locator).get(no);
-                            nthElementText = element.getText();
+                    nthElementText = element.getText();
 
                     return nthElementText.contains(expTextPart) ? element : null;
 
@@ -30,7 +34,7 @@ public class CustomExpectedConditions {
             @Override
             public String toString() {
                 return String.format("%dth element \nof list \nto have text: %s\n while actual text was: %s\n",
-                no, expTextPart, nthElementText);
+                        no, expTextPart, nthElementText);
             }
         };
     }
