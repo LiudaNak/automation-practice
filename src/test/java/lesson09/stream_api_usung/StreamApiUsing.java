@@ -45,11 +45,11 @@ public class StreamApiUsing {
         driver.findElement(By.id("search_query_top")).clear();
         driver.findElement(By.id("search_query_top")).sendKeys("Dress");
 
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfAllElementsLocatedBy((By.xpath("//*[@id=\"index\"]/div[2]"))));
         List<WebElement> list = driver.findElements(By.xpath("//*[@id=\"index\"]/div[2]"));
 
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfAllElementsLocatedBy((By) list));
-
         int elementContainText = (int) list.stream().filter(s -> s.getText().contains("Dress")).count();
+
         Assert.assertTrue(list.size()==elementContainText);
 
     }
