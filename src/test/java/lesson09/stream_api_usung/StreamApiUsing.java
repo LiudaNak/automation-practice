@@ -16,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -40,13 +41,17 @@ public class StreamApiUsing {
         driver.quit();
     }
 
+
+
     @Test
     public void verifyAllTipsContainsSomeText() {
         driver.findElement(By.id("search_query_top")).clear();
         driver.findElement(By.id("search_query_top")).sendKeys("Dress");
 
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfAllElementsLocatedBy((By.xpath("//*[@id=\"index\"]/div[2]"))));
         List<WebElement> list = driver.findElements(By.xpath("//*[@id=\"index\"]/div[2]"));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.urlContains()
+                //visibilityOfAllElements(list));
+
 
         int elementContainText = (int) list.stream().filter(s -> s.getText().contains("Dress")).count();
 

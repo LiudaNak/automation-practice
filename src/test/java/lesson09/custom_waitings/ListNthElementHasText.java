@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
 public class ListNthElementHasText {
+
     public static  ExpectedCondition<WebElement> listNthElementHasText(By locator, int elNo, String expText){
         return new ExpectedCondition<WebElement>() {
             private String elementText = "";
@@ -26,7 +27,6 @@ public class ListNthElementHasText {
                     System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
                     driver = new ChromeDriver();
 
-                   //elementText = driver.findElements(locator).get(elNo).getText();
                    WebElement element = driver.findElements(locator).get(elNo);
                     elementText = element.getText();
 

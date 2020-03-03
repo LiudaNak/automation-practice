@@ -1,4 +1,3 @@
-/*
 package lesson09.custom_waitings;
 
 import lesson09.a_own_expected_condotion.CustomExpectedConditions;
@@ -36,16 +35,15 @@ public class TestSuit {
 wait.until(CustomExpectedConditions.listNthElementHasText(By.xpath("//*[@id=\"index\"]/div[2]"), 3, "Dress"));
     }
 
-    @Test
+/*    @Test
     public void secondTest(){
        WebDriverWait wait = new WebDriverWait(driver, 10);
-       wait.until(CustomExpectedConditions.)
+       wait.until(CustomExpectedConditions.
     }
 
     @Test
     public void thirdTest(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(CustomExpectedConditions.)
-    }
+    }*/
 }
-*/
