@@ -1,10 +1,13 @@
+/*
 package lesson09.stream_api_usung;
+*/
 /*1. Напишите тест, похожий на рассмотренный на занятии 5 (ввод поискового запроса и проверка первой подсказки),
 только проверьте, что все подсказки выпадающего списка содержат вводимый текст.
         1.1. Искать список всех подсказок через findElements;
         1.2. Проверку всех подсказок сделать с помощью Stream API.
         2. Запустить сьют через мавен и через IDE.
-        3. Закоммитить изменения, залить их на репозиторий GitHub и прислать ссылку.*/
+        3. Закоммитить изменения, залить их на репозиторий GitHub и прислать ссылку.*//*
+
 
 
 
@@ -49,9 +52,7 @@ public class StreamApiUsing {
         driver.findElement(By.id("search_query_top")).sendKeys("Dress");
 
         List<WebElement> list = driver.findElements(By.xpath("//*[@id=\"index\"]/div[2]"));
-        new WebDriverWait(driver, 10).until(ExpectedConditions.urlContains()
-                //visibilityOfAllElements(list));
-
+        new WebDriverWait(driver, 10).until(ExpectedConditions.urlContains();
 
         int elementContainText = (int) list.stream().filter(s -> s.getText().contains("Dress")).count();
 
@@ -59,3 +60,4 @@ public class StreamApiUsing {
 
     }
 }
+*/

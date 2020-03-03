@@ -35,15 +35,15 @@ public class TestSuit {
 wait.until(CustomExpectedConditions.listNthElementHasText(By.xpath("//*[@id=\"index\"]/div[2]"), 3, "Dress"));
     }
 
-/*    @Test
+    @Test
     public void secondTest(){
        WebDriverWait wait = new WebDriverWait(driver, 10);
-       wait.until(CustomExpectedConditions.
+       wait.until(lesson09.custom_waitings.CustomExpectedConditions.pageIsLoaded("http://automationpractice.com/index.php", "exp"));
     }
 
     @Test
     public void thirdTest(){
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(CustomExpectedConditions.)
-    }*/
+        wait.until(lesson09.custom_waitings.CustomExpectedConditions.stalenessOfElement(driver.findElement(By.id("header"))));
+    }
 }
