@@ -14,11 +14,14 @@ import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
 public class AccountTest {
     static WebDriver driver;
+    WebDriverWait wait = new WebDriverWait(driver, 10);
 
     @BeforeClass
     public static void setUp() {
@@ -31,16 +34,18 @@ public class AccountTest {
 
     @AfterClass
     public static void tearDown() {
+
         driver.quit();
     }
 
     @Before
     public void goToStartPage(){
         driver.get("http://automationpractice.com/index.php");
-        driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")).click();
-        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("ms.liuda+1@gmail.com");
-        driver.findElement(By.xpath("//*[@id=\"passwd\"]")).sendKeys("Portal123");
-        driver.findElement(By.xpath("//*[@id=\"SubmitLogin\"]/span")).click();
+        driver.findElement(By.className("login")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("email")));
+        driver.findElement(By.id("email")).sendKeys("ms.liuda+1@gmail.com");
+        driver.findElement(By.id("passwd")).sendKeys("Portal123");
+        driver.findElement(By.id("SubmitLogin")).click();
     }
 
     @Test
