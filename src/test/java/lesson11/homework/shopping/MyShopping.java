@@ -30,10 +30,10 @@ public class MyShopping {
         driver.get("http://automationpractice.com/index.php");
     }
 
-   /* @AfterClass
+   @AfterClass
     public static void tearDown() {
         driver.quit();
-    }*/
+    }
 
     @Before
     public void goToStartPage() {
